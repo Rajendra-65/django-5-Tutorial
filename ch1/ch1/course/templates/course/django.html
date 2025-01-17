@@ -1,16 +1,18 @@
 <!DOCTYPE html>
-<html class="no-js">
+{%load static%}
 <html>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <link rel='stylesheet' href="{%static 'course/CSS/style.css'%}">
+        <title>Django</title>
     </head>
     <body>
-        <h1>Hello how are you now i am learning {{cname}} 5.1 and it is of seat {{st}}</h1>
-        <h2>Total seats {{st}}</h2>
+        <h1>Hello Django Template Language</h1>
+        <h2>Name:{{name}}</h2>
+        <img src="{%static 'course/images/pic1.png'%}" alt="screenshots">
+        <script src = "{% static 'course/js/script.js' %}"></script>
     </body>
 </html>
