@@ -6,11 +6,16 @@
     Home
 {% endblock title %}
 
+{%block corecss%} 
+    {% comment %} {{block.super}} {% endcomment %}
+    <link rel='stylesheet' href = "{%static 'course/css/style.css'%}">
+{%endblock corecss%}
+
 {% block content%}
     <body>
-        <h1>Hello Django Template Language</h1>
+        <h1 >Hello Django Template Language</h1>
         <h2>Name:{{name}}</h2>
         <img src="{%static 'course/images/pic1.png'%}" alt="screenshots">
-        <script src = "{% static 'course/js/script.js' %}"></script>
+        {% comment %} <script src = "{% static 'course/js/script.js' %}"></script> {% endcomment %}
     </body>
 {% endblock content%}

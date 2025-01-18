@@ -24,6 +24,7 @@ from course import views as course
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("__reload__/",include("django_browser_reload.urls")),
     path('',include('app1.urls')),
     path('',include('app2.urls')),
     path('course/',include('course.urls')),
