@@ -1,18 +1,16 @@
-<!DOCTYPE html>
+{% extends "core/base.html" %}
+
 {%load static%}
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel='stylesheet' href="{%static 'course/CSS/style.css'%}">
-        <title>Django</title>
-    </head>
+
+{% block title %}
+    Home
+{% endblock title %}
+
+{% block content%}
     <body>
         <h1>Hello Django Template Language</h1>
         <h2>Name:{{name}}</h2>
         <img src="{%static 'course/images/pic1.png'%}" alt="screenshots">
         <script src = "{% static 'course/js/script.js' %}"></script>
     </body>
-</html>
+{% endblock content%}
