@@ -12,10 +12,22 @@
     </head>
     <body>
        <ul>
-            <li>Home</li>
-            <li>Django</li>
-            <li>Python</li>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <a href="/course/learn-django">
+                    Django
+                </a>
+            </li>
+            <li>
+                <a href="/course/fast_api">Python
+            </li>
        </ul>
+       <hr>
+       <li>
+            <a href = "{% url 'learn_django' %}">DJango</a>
+       </li>
        {%block content%} {%endblock content%}
     </body>
 </html>
