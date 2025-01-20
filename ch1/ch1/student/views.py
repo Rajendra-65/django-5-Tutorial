@@ -17,7 +17,7 @@ def single_data(req):
 #     return render(req,'student/registration.html')
 
 def registration(req):
-    form = Registration(field_order=['email','city'])
+    form = Registration(field_order=['email','city'],auto_id=True)
     return render(req,'student/registration.html',{'form':form})
 
 def logIn(req):

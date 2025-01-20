@@ -11,7 +11,32 @@
     <body>
         <h1>Student Registration</h1>
         <form action="">
-            {{form}}
+            <label 
+                for="{{form.first_name.id_for_label}}"
+            >
+                First Name:
+            </lable>
+            <input 
+                type = 'text' 
+                name="{{form.first_name.name}}"
+                required 
+                id = "{{form.first_name.id_for_label}}"
+                value="{{form.first_name.value | default:'value'}}"
+            />
+            <label 
+                for="{{form.last_name.id_for_label}}"
+            >
+                First Name:
+            </lable>
+            <input 
+                type = 'text' 
+                name="{{form.last_name.name}}"
+                required 
+                id = "{{form.last_name.id_for_label}}"
+                value="{{form.last_name.value | default:'value'}}"
+                
+            />
+            <br>
             <input type="submit" value = "Submit">
         </form>
     </body>
