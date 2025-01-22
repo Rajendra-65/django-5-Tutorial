@@ -10,34 +10,31 @@
     </head>
     <body>
         <h1>Student Registration</h1>
-        <form action="">
-            <label 
-                for="{{form.first_name.id_for_label}}"
-            >
-                First Name:
-            </lable>
-            <input 
-                type = 'text' 
-                name="{{form.first_name.name}}"
-                required 
-                id = "{{form.first_name.id_for_label}}"
-                value="{{form.first_name.value | default:'value'}}"
-            />
-            <label 
-                for="{{form.last_name.id_for_label}}"
-            >
-                First Name:
-            </lable>
-            <input 
-                type = 'text' 
-                name="{{form.last_name.name}}"
-                required 
-                id = "{{form.last_name.id_for_label}}"
-                value="{{form.last_name.value | default:'value'}}"
-                
-            />
-            <br>
-            <input type="submit" value = "Submit">
+        <form 
+            action=""
+            method="POST"
+            novalidate
+        >
+        {% csrf_token %}
+        {% for field in form %}
+                  <label 
+                      for="{{field.id_for_label}}"
+                  >
+                      {{field.label}}
+                  </label>
+                  <input 
+                      class=""
+                      type = "{{field.field.widget.input_type}}"
+                      name = "{{field.name}}"
+                      required
+                      id="{{field.id_for_label}}"
+                      value = "{{field.value | default:''}}"
+                      placeholder = "{{field.field.widget.attrs.placeholder | default:''}}"
+                      required = "{{field.field.required}}"
+                  />
+                  <br>
+        {% endfor %}
+        <input type = 'submit'/>
         </form>
     </body>
 </html>
