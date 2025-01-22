@@ -20,6 +20,7 @@ def single_data(req):
 def registration(request):
     if request.method == 'POST':
         form = Registration(request.POST)
+        print(form.is_valid)
         if form.is_valid():
             # print(form.cleaned_data)
             first_name = form.cleaned_data['first_name']

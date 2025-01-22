@@ -3,12 +3,47 @@ from django import forms
 
 class Registration(forms.Form):
     # UnderScore becomes " " in forms
-    first_name = forms.CharField()
+    first_name = forms.CharField(
+        min_length=3
+    )
     last_name = forms.CharField()
     email = forms.EmailField()
     city = forms.CharField()
 
+    #validating specific field in django
 
+    # def clean_first_name(self):
+    #     # self.cleaned_data.get('name')
+    #     first_name = self.cleaned_data['first_name']
+    #     print(first_name)
+    #     if len(first_name) < 4 :
+    #         raise forms.ValidationError('Enter more than or equal 4 charecters')
+    #     return first_name
+    #     # if len(last_name) < 4 :
+    #     #     raise forms.ValidationError('Enter more than or equal 4 charecters')
+    #     # else:
+    #     #     return last_name
+    #     # last_name = self.cleaned_data['last_name']
+    #     # email = self.cleaned_data['email']
+    #     # city = self.cleaned_data['city']
+
+    def clean(self):
+        cleaned_data = super().clean()
+        first_name = cleaned_data.get('first_name')
+        last_name = cleaned_data.get('last_name')
+        email = cleaned_data.get('email')
+        city = cleaned_data.get('city')
+        if first_name and len(first_name) < 4:
+            self.add_error('first_name','Enter more than or equal 4 charecter')
+        if last_name and len(last_name) < 4:
+            self.add_error('first_name','Enter more than or equal 4 charecter')
+        if email and len(email) < 10:
+            self.add_error('first_name','Enter more than or equal 4 charecter')
+        if city and len(city) < 4:
+            self.add_error('first_name','Enter more than or equal 4 charecter')
+        print(cleaned_data)
+        return cleaned_data
+    
 class loginn(forms.Form):
     # UnderScore becomes " " in forms
     email = forms.EmailField()
