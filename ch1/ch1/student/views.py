@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from student.models import Profile
+from student.models import Profile,Registration
 from student.forms import Registration,loginn,Address,Test,DemoForm
 from django.http import HttpResponseRedirect
 # Create your views here.
@@ -20,14 +20,15 @@ def single_data(req):
 def registration(request):
     if request.method == 'POST':
         form = Registration(request.POST)
-        print(form.is_valid)
+        
         if form.is_valid():
-            # print(form.cleaned_data)
-            first_name = form.cleaned_data['first_name']
-            last_name = form.cleaned_data['last_name']
+            print(form.cleaned_data)
+            name = form.cleaned_data['name']
+            # last_name = form.cleaned_data['last_name']
             email = form.cleaned_data['email']
-            city = form.cleaned_data['city']
-            print(first_name,last_name,email,city)
+            password = form.cleaned_data['password']
+            user = Registration(Name=name,Email=email,Password=password)
+            user.save()
             return HttpResponseRedirect('/student/success')
     else:
         form = Registration()

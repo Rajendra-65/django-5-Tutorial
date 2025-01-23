@@ -18,4 +18,8 @@ class Result (models.Model):
 
     def __str__(self):
         return self.stu_class
-    
+
+class Registration(models.Model):
+    name = models.CharField(max_length=255)
+    email = models.EmailField(max_length = 255)
+    password = models.CharField(max_length=255)

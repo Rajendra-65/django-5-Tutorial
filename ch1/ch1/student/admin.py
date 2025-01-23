@@ -1,5 +1,5 @@
 from django.contrib import admin
-from student.models import Profile,Result
+from student.models import Profile,Result,Registration
 
 # Register your models here.
 
@@ -16,3 +16,9 @@ class ResultAdmin(admin.ModelAdmin):
     list_display = ('id','stu_class')
 
 admin.site.register(Result,ResultAdmin)
+
+class RegistrationAdmin(admin.ModelAdmin):
+    list_display = ('name','email','password')
+
+admin.site.register(Registration,RegistrationAdmin)
+
