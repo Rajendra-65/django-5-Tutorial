@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'course',
     'student',
     'modelForm',
+    'book',
     'core'
 ]
 
