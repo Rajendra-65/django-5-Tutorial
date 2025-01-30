@@ -13,8 +13,8 @@ class Book(models.Model):
         ('other','Other')
     ]
 
-    title = models.CharField(max_length=200),
-    author = models.CharField(max_length=200),
+    title = models.CharField(max_length=200)
+    author = models.CharField(max_length=200)
     description = models.TextField()
     genre = models.CharField(max_length = 20 , choices = GENRE_CHOICES)
     isbn = models.CharField('ISBN',max_length = 13 , unique = True)

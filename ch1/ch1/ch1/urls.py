@@ -21,6 +21,7 @@ from app2 import views as ap2
 from course import views as course
 from student import views as student
 from modelForm import views as mf
+from book import views as book
 # from app1.views import home,myapp1,myfunction
 # from app2.views import myapp2,myapp2_me
 
@@ -32,5 +33,6 @@ urlpatterns = [
     path('course/',include('course.urls')),
     path('',include('core.urls')),
     path('student/',include('student.urls')),
-    path('modelForm/',include('modelForm.urls'))
+    path('modelForm/',include('modelForm.urls')),
+    path('book/',include('book.urls')),
 ]

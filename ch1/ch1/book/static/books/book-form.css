@@ -1,0 +1,14 @@
+.book-reg-form{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding-left:30px;
+    padding-right:30px;
+}
+
+p{
+    display:flex;
+    flex-direction : column;
+    width:full;
+}

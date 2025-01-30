@@ -1,0 +1,28 @@
+{%extends 'book/base.html'%}
+{% block title %} Book Form {%endblock title%}
+
+{% block content %}
+<form action = "{%url 'book_create' %}" class='book-reg-form' method='POST'>
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type='submit' value='Submit' class='mt-2 p-2 border rounded-md bg-orange-600'>
+        Save
+    </button>
+</form>
+{%if messages%}
+
+    {%for message in messages%}
+        <div class='alert alert-{{message.tags}} alert-dismissble fade show'>
+            {{message}}
+            <button 
+                type = "button" 
+                class='btn-close'
+                data-bs-dismis = 'alert'
+            >
+                close
+            </button>
+
+        </div>
+    {%endfor%}
+{%endif%}
+{% endblock %}
