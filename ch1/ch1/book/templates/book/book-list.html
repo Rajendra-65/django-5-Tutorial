@@ -1,0 +1,24 @@
+{%extends 'book/base.html'%}
+
+{%block title%} Book Lists {%endblock%}
+
+{%block content%}
+    {% for book in books %}
+        <div class='h-200 w-600 p-2 flex flex-col border rounded-md mb-5'>
+            <div class='flex flex-col p-2 mb-2'>
+                <h1 class = 'font-bold'>{{book.title}}</h1>
+                <h1 class = 'text-xs'>{{book.author}}</h1>
+                <p class='text-sm mb-1'>{{book.description | truncatewords:30}}</p>
+                <div class = 'align-center justify-center mt-3'>
+                    <a href="{% url 'book_detail' book.pk %}" class = "border bg-blue-700 p-2 rounded-md mt-3">View Details</a>
+                </div>
+            </div>
+            
+        </div>
+        {%empty%}
+
+        <div class = 'h-200 w-600 p-2 flex flex-col'>
+            <h1 class = 'font-bold'>No Books Available</h1>
+        </div>
+    {% endfor %}
+{%endblock content%}
